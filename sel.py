@@ -1,4 +1,5 @@
 import time
+from bs4 import BeautifulSoup
 
 from selenium import webdriver
 
@@ -33,5 +34,11 @@ for x in range(len(Hourbutton)):
 
 page_source = driver.page_source
 
-print(page_source)
+soup = BeautifulSoup(page_source, 'html')
+coins = []
+coins_selector = soup.find_all('tr', class_='cmc-table-row')
+
+for i in coins_selector:
+	coin_name = i.find('a')
+	print(coin_name)
 
