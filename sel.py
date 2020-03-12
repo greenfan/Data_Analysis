@@ -1,3 +1,6 @@
+### extract titles from fields, import pands like so...
+
+
 import time
 from bs4 import BeautifulSoup
 
@@ -35,10 +38,15 @@ for x in range(len(Hourbutton)):
 page_source = driver.page_source
 
 soup = BeautifulSoup(page_source, 'html')
-coins = []
+
 coins_selector = soup.find_all('tr', class_='cmc-table-row')
 
 for i in coins_selector:
-	coin_name = i.find('a')
-	print(coin_name)
+    coin_name = i.find('a')
+    coin_change = i.find('div', class_='cmc--change-positive')
+    print(coin_name)
+    print(coin_change)
 
+	
+	
+	
