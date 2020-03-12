@@ -1,11 +1,8 @@
-### extract titles from fields, import pands like so...
-
-
 import time
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
-
+'''
 
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
@@ -36,17 +33,15 @@ for x in range(len(Hourbutton)):
 
 
 page_source = driver.page_source
-
+'''
+page_source = open('out.html', 'r').read()
 soup = BeautifulSoup(page_source, 'html')
 
 coins_selector = soup.find_all('tr', class_='cmc-table-row')
 
 for i in coins_selector:
-    coin_name = i.find('a')
-    coin_change = i.find('div', class_='cmc--change-positive')
+    coin_name = i.find('a').contents[0]
+    coin_change = i.find('div', class_='cmc--change-positive').contents[0]
     print(coin_name)
     print(coin_change)
-
-	
-	
 	
