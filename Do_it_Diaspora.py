@@ -27,7 +27,7 @@ time.sleep(3)
 username = driver.find_element_by_css_selector("#user_username")
 password = driver.find_element_by_css_selector("#user_password")
 username.send_keys("opensciencedaily" + Keys.TAB )
-password.send_keys("Zxcvfgfg21" + Keys.ENTER)
+password.send_keys("password" + Keys.ENTER)
 #password.send_keys(u'\ue007')
 
 driver.get('https://diasp.org/stream')
